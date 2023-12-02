@@ -1,4 +1,8 @@
+import {menuLinks} from './data.js';
+console.log(menuLinks);
 
+const userName = window.prompt('whats your user name?');
+console.log(userName);
 
 
 // #app {color: 'blue'}
