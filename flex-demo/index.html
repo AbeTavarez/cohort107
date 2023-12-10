@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Box</title>
+
+    <style>
+      .container {
+        border: 1px solid red;
+        display: flex;
+      }
+      .boxes {
+        border: 0.1px solid;
+        width: 99px;
+        height: 99px;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      #box1 {
+        background-color: green;
+        /* flex-grow: 1; */
+      }
+      #box2 {
+        background-color: yellow;
+        /* flex-grow: 6; */
+        /* margin-right: auto; */
+        /* margin-left: auto; */
+      }
+      #box3 {
+        background-color: pink;
+        /* flex-grow: 1; */
+      }
+      #box4 {
+        background-color: blue;
+      }
+      #box5 {
+        background-color: red;
+      }
+      #box6 {
+        background-color: orange;
+      }
+      #box7 {
+        background-color: beige;
+      }
+      #box8 {
+        background-color: lightgrey;
+      }
+      nav {
+        border: 1px solid purple;
+        display: flex;
+      }
+      li {
+        list-style: none;
+        width: 100px;
+        height: 25px;
+        background-color: aqua;
+        text-align: center;
+        padding-top: 4px;
+      }
+      li:nth-child(3) {
+        margin-right: auto;
+        margin-left: auto;
+        color: red;
+      }
+
+      .wrapper {
+        border: 3px solid pink;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 500px;
+      }
+      .wrapper > div {
+        display: flex;
+      }
+      .ds {
+        border: 0.1px solid;
+        width: 99px;
+        height: 99px;
+        text-align: center;
+        font-size: 30px;
+        margin: 5px;
+      }
+
+      #box11 {
+        background-color: green;
+        /* flex-grow: 1; */
+      }
+      #box22 {
+        background-color: yellow;
+        /* flex-grow: 6; */
+        /* margin-right: auto; */
+        /* margin-left: auto; */
+      }
+      #box33 {
+        background-color: pink;
+        /* flex-grow: 1; */
+      }
+      #box44 {
+        background-color: blue;
+      }
+      #box55 {
+        background-color: red;
+      }
+      #box66 {
+        background-color: orange;
+      }
+      #box77 {
+        background-color: beige;
+      }
+      #box88 {
+        background-color: lightgrey;
+      }
+      #box51 {
+        order: 2;
+      }
+      #box52 {
+        order: 3;
+      }
+      #box53 {
+        order: 1;
+      }
+      #box54 {
+        /* order: 5; */
+      }
+      #box55 {
+        /* order: 2; */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Flex model</h1>
+
+    <div class="container">
+      <!--     flex items-->
+      <div class="boxes" id="box1">1</div>
+      <div class="boxes" id="box2">2</div>
+      <div class="boxes" id="box3">3</div>
+      <!-- <div class="boxes" id="box4">4</div>
+      <div class="boxes" id="box5">5</div>
+      <div class="boxes" id="box6">6</div>
+      <div class="boxes" id="box7">7</div>
+      <div class="boxes" id="box8">8</div> -->
+    </div>
+
+    <nav>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+      <li>Link 4</li>
+      <li>Link 5</li>
+    </nav>
+
+    <div class="wrapper">
+      <div>
+        <div class="ds" id="box51">1</div>
+        <div class="ds" id="box52">2</div>
+        <div class="ds" id="box53">3</div>
+        <div class="ds" id="box54">4</div>
+        <div class="ds" id="box55">5</div>
+      </div>
+      <div>
+        <div class="ds" id="box11">4</div>
+        <div class="ds" id="box11">5</div>
+        <div class="ds" id="box11">6</div>
+      </div>
+    </div>
+  </body>
+</html>

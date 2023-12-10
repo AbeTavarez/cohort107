@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./src/index.ts" defer></script>
+    <title>Note Taking TS</title>
+  </head>
+  <body>
+    <h1>Note Taking TS App</h1>
+
+    <form>
+      <h3>Create Note</h3>
+
+      <label for="note-title">Title: </label>
+      <br />
+      <input type="text" id="note-title" />
+      <br />
+      <br />
+      <label for="note-body">Write a new Note:</label>
+      <br />
+      <textarea name="note-body" id="note-body" cols="30" rows="10"></textarea>
+      <br />
+      <button id="save-btn">Save</button>
+    </form>
+
+    <div id="my-notes">
+      <h2>My Notes</h2>
+    </div>
+  </body>
+</html>

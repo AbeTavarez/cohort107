@@ -1,20 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Google</h1>
+  </head>
+  <body>
+    <main id="container">
+      <h1 style="font-size: 32px; background-color: red">Google</h1>
 
-    <!-- this is the image of the company logo  -->
+      <p style="padding: 20px; border: 2px solid red">Lorem, ipsum dolor.</p>
 
-     <a href="http://www.gogle.com" target="_blank">
-        <img src="./googlo-og-logo.webp" alt="Google company logo">
-    </a>
+      <!-- this is the image of the company logo  -->
 
-    <a href="http://www.gogle.com" target="_blank">Google Website</a>
+      <a href="http://www.gogle.com" target="_blank">
+        <img src="./googlo-og-logo.webp" alt="Google company logo" />
+      </a>
 
-</body>
+      <a href="http://www.gogle.com" target="_blank">Google Website</a>
+
+      <ul id="todos">
+        <li class="item">one</li>
+        <li class="item">two</li>
+        <li class="item">three</li>
+      </ul>
+
+      <section id="learners_section">
+        <h2>Learners:</h2>
+        <p>Lorem, ipsum dolor.</p>
+
+        <div>
+          <p>Lorem, ipsum dolor.</p>
+        </div>
+
+        <p>Lorem, ipsum dolor.</p>
+      </section>
+
+      <section id="links_section">
+        <h2>Styling a link depending on state</h2>
+
+        <p>
+          <b>
+            <a href="http://perscholas.com" target="_blank">This is a link</a>
+          </b>
+        </p>
+        <p>
+          <b>Note:</b> a:hover MUST come after a:link and a:visited in the CSS
+          definition in order to be effective.
+        </p>
+        <p>
+          <b>Note:</b> a:active MUST come after a:hover in the CSS definition in
+          order to be effective.
+        </p>
+      </section>
+
+      <section id="tasks_section">
+        <h3>Tasks</h3>
+        <ol>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+        </ol>
+      </section>
+
+      <p id="description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem non
+        architecto eum aliquam, rem ea asperiores soluta deleniti sit aspernatur
+        molestiae placeat illum! Vero a nisi eligendi fugiat cupiditate
+        voluptatem!
+      </p>
+    </main>
+  </body>
 </html>
