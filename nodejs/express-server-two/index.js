@@ -37,6 +37,7 @@ app.use((req, res, next) => {
 });
 app.use(morgan('dev'));
 app.use(express.static('./styles'));
+app.use(express.static('./assets'));
 
 
 
@@ -62,6 +63,10 @@ app.get('/current-user', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.send('<h1>Login Page</h1>')
+});
+
+app.get('/download', (req, res) => {
+    res.download('./assets/photo-15.png');
 });
 
 /**
