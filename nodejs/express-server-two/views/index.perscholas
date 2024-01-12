@@ -19,6 +19,11 @@
           <button>Click here to download</button>
       </a>
 
+
+      <form>
+        <input type="text" />
+      </form>
+
     </div>
   </body>
 </html>
