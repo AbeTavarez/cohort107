@@ -1,6 +1,9 @@
 import express from 'express';
 import './loadEnv.js';
 
+// mongoose is imported here so we can connect to db at the bottom of the file 
+import mongoose from 'mongoose';
+
 import grades from './routes/grades.js';
 
 const app = express();
@@ -23,6 +26,12 @@ app.use((err, _req, res, next) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Server running on port: ${PORT}`);
+app.listen(PORT, async () => {
+  try {
+      console.log(`Server running on port: ${PORT}`);
+      await mongoose.connect(process.env.ATLAS_URI);
+      console.log(`Connected to MongoDB`);
+    } catch (error) {
+      console.log(error);
+    }
 });
