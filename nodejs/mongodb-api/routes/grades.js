@@ -93,9 +93,9 @@ router.get('/class/:id', async (req, res) => {
  */
 router.patch('/:id/scores/add', async (req, res) => {
     // find the grade to update
-    const grade = await Grade.findOne({_id: req.params .id});
+    const grade = await Grade.findOne({_id: req.params.id});
    
-    if (!grade) res.send('Grade not found!')
+    if (!grade) return res.send('Grade not found!')
     // add the new score (req.body) to the scores array
     grade.scores.push(req.body);
     // save doc
