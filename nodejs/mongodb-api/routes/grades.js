@@ -86,7 +86,27 @@ router.get('/class/:id', async (req, res) => {
 
     if (result.length < 1) res.status(404).send("Not Found");
     else res.send(result).status(200);
-})
+});
+
+/**
+ * PATCH /:id/scores/add
+ */
+router.patch('/:id/scores/add', async (req, res) => {
+    // find the grade to update
+    const grade = await Grade.findOne({_id: req.params .id});
+   
+    if (!grade) res.send('Grade not found!')
+    // add the new score (req.body) to the scores array
+    grade.scores.push(req.body);
+    // save doc
+    await grade.save();
+    res.send(grade);
+
+});
+
+/**
+ * DELETE /:id/scores/remove
+ */
 
 
 export default router;
