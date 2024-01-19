@@ -29,6 +29,7 @@ router.get("/:id", async (req, res) => {
  * @description creates a new user and a profile for the user
  */
 router.post("/", async (req, res) => {
+  console.log(req.body);
  try {
   const user = await User.create(req.body);
   await Profile.create({user_id: user._id});
