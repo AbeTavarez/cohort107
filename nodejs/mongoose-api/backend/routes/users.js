@@ -84,9 +84,11 @@ router.delete('/:id', async (req, res) => {
  * PUT /:id/update-password
  * @param: client needs to send body: 
  * {
- *  oldPassword: "my old password"
+ *  currentPassword: "my old password"
  *  newPassword: "my new password"
  * }
+ * 
+ * We can use NodeMailer here to send emails before updating the password
  */
 router.put('/:id/update-password', async (req, res) => {
   try {
