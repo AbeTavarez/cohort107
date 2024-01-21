@@ -1,8 +1,10 @@
 import { Router } from "express";
+import bcrypt from 'bcrypt';
 import User from "../models/users.js";
 import Profile from '../models/profiles.js';
 
 const router = new Router();
+const SALT_ROUNDS = 8;
 
 /**
  * GET /
@@ -43,11 +45,18 @@ router.post("/", async (req, res) => {
 
 /**
  * PUT /:id
+ * Here i used a PUT method but a PATCH will be also ok!
  */
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { body } = req;
+
+    //! Stops request from updating the user's password
+    if (body.password) {
+      delete body.password;
+      console.log('Password removed from body');
+    }
 
     const updatedUser = await User.findByIdAndUpdate(id, body, { new: true });
     res.json(updatedUser);
@@ -69,6 +78,71 @@ router.delete('/:id', async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+});
+
+/**
+ * PUT /:id/update-password
+ * @param: client needs to send body: 
+ * {
+ *  oldPassword: "my old password"
+ *  newPassword: "my new password"
+ * }
+ */
+router.put('/:id/update-password', async (req, res) => {
+  try {
+    const {id} = req.params;
+    const {currentPassword, newPassword} = req.body;
+
+    // find the user to update
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json({msg: "User not found!"})
+
+    // verify the old password with the password hash in db 
+    const passwordMatched = await bcrypt.compare(currentPassword, user.password);
+    if (!passwordMatched) {
+      return res.status(401).json({msg: "Authentication Error"})
+    }
+
+    console.log('password matched!');
+
+    // hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, SALT_ROUNDS);
+    
+    // set the old password hash to the newPassword hash
+    await User.findByIdAndUpdate(id, {password: hashedPassword});
+
+    res.json({msg: 'User password updated', user});
+    
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
+/**
+ * POST /login
+ * @description authenticates an user with email and password
+ */
+router.post('/login', async (req, res) => {
+  const {email, password} = req.body;
+
+  // find user with the provided email
+  const user = await User.findOne({email});
+
+  if (!user) {
+    return res.status(401).json({msg: "Invalid Credentials"});
+  }
+
+  // verify provided password with password hash from db
+  const passwordMatched = await bcrypt.compare(password, user.password);
+
+  if (!passwordMatched) {
+    return res.status(401).json({msg: "Invalid Credentials password"})
+  }
+
+  // TODO: generate a jwt token and send it to the client
+  res.json({msg: "User is logged in!", user});
+
 });
 
 export default router;
