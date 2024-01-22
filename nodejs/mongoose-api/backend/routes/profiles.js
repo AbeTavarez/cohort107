@@ -11,4 +11,20 @@ router.get('/', async(req, res) => {
 });
 
 
+router.get('/:id', async (req,res) => {
+    try {
+        const profile = await Profile.findById(req.params.id);
+        if (!profile) return res.status(404).json({msg: 'Resource Not Found!'});
+        else res.status(200).json(profile);
+    } catch (error) {
+        console.log(error);
+    }
+
+});
+
+/**
+ * PATCH /:id
+ */
+
+
 export default router;
