@@ -1,7 +1,9 @@
 import Score from "./Score";
 
 function Learner({ learner }) {
+
   const { name, bio, scores } = learner;
+  
   return (
     <div>
       {/* Display name  */}
