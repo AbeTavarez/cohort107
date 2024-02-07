@@ -10,7 +10,7 @@ const router = express.Router();
  */
 router.get('/', async (req, res) => {
     // const collection = await db.collection("grades");
-    // const result = await collection.find();
+    // const result = await collection.find().toArray();
     const result = await Grade.find({});
     res.send(result);
 
@@ -86,6 +86,23 @@ router.get('/class/:id', async (req, res) => {
 
     if (result.length < 1) res.status(404).send("Not Found");
     else res.send(result).status(200);
+});
+
+/**
+ * PATCH /:id
+ */
+router.patch('/class/:id', async (req, res) => {
+    const updatedGrade = await Grade.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    res.json(updatedGrade);
+});
+
+
+/**
+ * PUT /:id
+ */
+router.put('/class/:id', async (req, res) => {
+    const updatedGrade = await Grade.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    res.json(updatedGrade);
 });
 
 /**

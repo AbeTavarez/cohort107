@@ -1,8 +1,17 @@
+import Button from "./Button";
 import Score from "./Score";
 
-function Learner({ learner }) {
+function Learner({ learner, learners, setLearners }) {
 
   const { name, bio, scores } = learner;
+
+  const handleDelete = (e) => {
+    // TODO implement delete
+    const results = learners.filter(l => l.name !== name);
+    console.log(results);
+
+    setLearners(results);
+  }
   
   return (
     <div>
@@ -10,6 +19,7 @@ function Learner({ learner }) {
       <p>
         <b>Name: </b>
         {name}
+        <Button onClick={handleDelete}>DELETE</Button>
       </p>
 
       {/* Display Bio  */}

@@ -27,4 +27,5 @@ form.addEventListener("submit", async (e) => {
   
   const data = await res.json()
   console.log(data);
+  navigation.navigate(`/nodejs/mongoose-api/frontend/src/pages/users.html`);
 });

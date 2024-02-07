@@ -2,12 +2,14 @@ import { useState } from "react";
 import Button from "./Button";
 
 function CreateLearnerForm({ setLearners, learners }) {
+    // local state for the new learner
   const [newLearner, setNewLearner] = useState({
     name: "",
     bio: "",
     scores: [],
   });
 
+  // handles the changes on the inputs
   const handleChange = (e) => {
     setNewLearner({
       ...newLearner,
@@ -15,10 +17,15 @@ function CreateLearnerForm({ setLearners, learners }) {
     });
   };
 
+  // be call on the form submit event
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(newLearner);
+
+    // add new learner to the learner array
     setLearners([newLearner, ...learners]);
+
+    // reset the local new learner object
     setNewLearner({
       name: "",
       bio: "",
@@ -47,7 +54,6 @@ function CreateLearnerForm({ setLearners, learners }) {
         ></textarea>
 
         <Button type="submit">Create new Learner</Button>
-        {/* <button type="button">Create new Learner</button> */}
       </form>
     </div>
   );

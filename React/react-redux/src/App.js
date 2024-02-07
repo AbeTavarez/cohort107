@@ -1,12 +1,14 @@
+
 import './App.css';
-import HomePage from './components/HomePage';
+import Counter from './features/Counter';
 
 function App() {
   return (
     <div className="App">
-      <h1>Employees App</h1>
+      <h1>React + Redux</h1>
 
-      <HomePage />
+      <Counter />
+    
     </div>
   );
 }

@@ -16,16 +16,20 @@ function App() {
     <div className="App">
       <h1>Learner App</h1>
 
-      <CreateLearnerForm setLearners={setLearners} learners={learners}/>
+      <CreateLearnerForm setLearners={setLearners} learners={learners} />
 
       {/* 4. Map over the data and render a Learner component for each object in the array */}
 
       <div>
         {learners.map((learner) => (
-          <Learner learner={learner} key={learner.id} />
+          <Learner
+            learner={learner}
+            key={learner.id}
+            learners={learners}
+            setLearners={setLearners}
+          />
         ))}
       </div>
-
     </div>
   );
 }
