@@ -1,8 +1,18 @@
 * {
-    text-align: center;
-    background-color: #0C090A;
-    color: #fff;
-    font-family: "Protest Revolution";
-    letter-spacing: .2rem;
+  text-align: center;
+  background-color: #0c090a;
+  color: #fff;
+  font-family: "Protest Revolution";
+  letter-spacing: 0.2rem;
+}
 
+p {
+  font-size: 1.5rem;
+  color: yellow;
+}
+
+li {
+  font-size: 1.5rem;
+  font-family: "Bebas Neuen";
+  margin: 50px 0;
 }
